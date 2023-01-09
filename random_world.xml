@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Mission xmlns="http://ProjectMalmo.microsoft.com" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <About>
+    <Summary>A simple 10 second mission with a reward for reaching a location.</Summary>
+  </About>
+
+  <ModSettings>
+      <MsPerTick>50</MsPerTick>
+  </ModSettings>
+
+  <ServerSection>
+    <ServerInitialConditions>
+    </ServerInitialConditions>
+    <ServerHandlers>
+      <DefaultWorldGenerator forceReset="true" seed="SEED"/> 
+      <!-- <ServerQuitFromTimeUp description="" timeLimitMs="100000"/> -->
+      <ServerQuitWhenAnyAgentFinishes/>
+    </ServerHandlers>
+  </ServerSection>
+
+  <AgentSection mode="Creative">
+    <Name>Agent0</Name>
+    <AgentStart>
+    </AgentStart>
+    <AgentHandlers>
+      <ContinuousMovementCommands/>
+      <AbsoluteMovementCommands/>
+      <!-- <DiscreteMovementCommands/> -->
+      <MissionQuitCommands/>
+      <ObservationFromFullStats/>
+      <ObservationFromRay/>
+      <ObservationFromGrid>
+        <Grid name="agentBlocks" absoluteCoords="false">
+          <min x="0" y="0" z="0"/>
+          <max x="0" y="1" z="0"/>
+        </Grid>
+      </ObservationFromGrid>
+      <VideoProducer want_depth="false" viewpoint="0">
+        <Width>256</Width>
+        <Height>256</Height>
+        <DepthScaling autoscale="true"/>
+      </VideoProducer> 
+    </AgentHandlers>
+  </AgentSection>
+
+</Mission>
